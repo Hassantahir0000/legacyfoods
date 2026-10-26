@@ -10,7 +10,7 @@
     "typecheck": "tsc --noEmit",
     "download-media": "node scripts/download-media.mjs",
     "optimize-video": "node scripts/optimize-video.mjs",
-    "optimize-images": "node scripts/optimize-images.mjs"
+    "optimize-assets": "node scripts/optimize-assets.mjs"
   },
   "dependencies": {
     "@fontsource-variable/manrope": "^5.3.0",

@@ -12,7 +12,8 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import SmoothScroll from "@/components/SmoothScroll";
 import Preloader from "@/components/Preloader";
-import { media } from "@/lib/media";
+import { preload } from "react-dom";
+import { media, mediaOriginal } from "@/lib/media";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -26,10 +27,10 @@ export const metadata: Metadata = {
     siteName: `${site.name} - ${site.tagline}`,
     locale: "en_US",
     type: "website",
-    images: [{ url: media(site.ogImage) }],
+    images: [{ url: mediaOriginal(site.ogImage) }],
   },
-  twitter: { card: "summary_large_image", images: [media(site.ogImage)] },
-  icons: { icon: media(site.footerLogo) },
+  twitter: { card: "summary_large_image", images: [mediaOriginal(site.ogImage)] },
+  icons: { icon: mediaOriginal(site.footerLogo) },
 };
 
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#35097c" };
@@ -41,6 +42,9 @@ const fontFace = `
 `;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  // The display font is used above the fold; fetch it with the HTML instead of after the CSS.
+  preload(media("2026/05/Musco-Origins.woff2"), { as: "font", type: "font/woff2", crossOrigin: "anonymous" });
+
   return (
     <html lang="en">
       <head>

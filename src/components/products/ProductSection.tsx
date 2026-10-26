@@ -1,4 +1,4 @@
-import { image, media } from "@/lib/media";
+import { media } from "@/lib/media";
 import type { Product } from "@/lib/products";
 import PackModel from "./PackModel";
 
@@ -12,7 +12,7 @@ export default function ProductSection({ product, index }: { product: Product; i
   return (
     <section
       className="product-section"
-      style={{ ["--product-bg" as string]: product.color, ["--pattern" as string]: `url("${image("2026/09/Untitled-design-35.png")}")` }}
+      style={{ ["--product-bg" as string]: product.color, ["--pattern" as string]: `url("${media("2026/09/Untitled-design-35.png")}")` }}
       aria-label={product.name}
     >
       <div className="product-section__inner">
@@ -24,7 +24,7 @@ export default function ProductSection({ product, index }: { product: Product; i
             </text>
           </svg>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="product-bowl__img" src={image(product.bowl)} alt={product.name} width={800} height={800} loading="lazy" decoding="async" />
+          <img className="product-bowl__img" src={media(product.bowl)} alt={product.name} width={800} height={800} loading="lazy" decoding="async" />
         </div>
 
         <div className="product-pack">
@@ -43,7 +43,7 @@ export default function ProductSection({ product, index }: { product: Product; i
 
       {product.accent &&
         [0, 1, 2].map((i) => (
-          <span key={i} className={`product-accent-item product-accent-item--${i}`} style={{ backgroundImage: `url("${image(product.accent!)}")` }} aria-hidden="true" />
+          <span key={i} className={`product-accent-item product-accent-item--${i}`} style={{ backgroundImage: `url("${media(product.accent!)}")` }} aria-hidden="true" />
         ))}
     </section>
   );

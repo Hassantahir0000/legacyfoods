@@ -53,7 +53,7 @@ export default function HomePage() {
         <div className="pouch-row" aria-label="Cocotea nimko range">
           {heroPouches.map((n, i) => (
             // eslint-disable-next-line @next/next/no-img-element
-            <img key={n} src={media(`2026/10/pouches-${n}.webp`)} alt="Cocotea nimko pouch" style={{ ["--i" as string]: i }} loading="lazy" />
+            <img key={n} src={media(`2026/10/pouches-${n}.webp`)} alt="Cocotea nimko pouch" width={577} height={573} style={{ ["--i" as string]: i }} loading="lazy" />
           ))}
         </div>
       </div>
@@ -98,7 +98,7 @@ export default function HomePage() {
         <Carousel className="pack-slider__carousel" autoplay={2500} label="Cocotea packs" dots>
           {packSlides.map(([src, alt], i) => (
             // eslint-disable-next-line @next/next/no-img-element
-            <img key={`${src}-${i}`} src={media(src)} alt={alt} loading="lazy" />
+            <img key={`${src}-${i}`} src={media(src)} alt={alt} width={577} height={573} loading="lazy" />
           ))}
         </Carousel>
       </section>
