@@ -128,7 +128,7 @@ h1, h2, h3, h4, p { margin: 0; }
 .nav-dropdown { position: relative; }
 .nav-dropdown > button svg { width: 0.5em; fill: currentColor; }
 .nav-dropdown__menu {
-  position: absolute; top: 100%; left: -16px; min-width: 220px; margin: 0; padding: 10px 0; list-style: none;
+  position: absolute; top: 100%; left: -16px; z-index: 3; min-width: 220px; margin: 0; padding: 10px 0; list-style: none;
   background: #fff; border-radius: 12px; box-shadow: 0 18px 40px rgba(40, 10, 90, 0.18);
   opacity: 0; visibility: hidden; transform: translateY(8px); transition: 0.25s var(--ease);
 }
@@ -194,12 +194,11 @@ h1, h2, h3, h4, p { margin: 0; }
    Home
    ========================================================================== */
 .video-hero { position: relative; background: #000; }
-.video-hero iframe, .video-hero__poster { display: block; width: 100%; height: min(808px, 56.25vw); border: 0; }
-.video-hero__poster { position: relative; padding: 0; background: #000; }
-.video-hero__poster img { width: 100%; height: 100%; object-fit: cover; }
-.video-hero__play { position: absolute; inset: 0; display: grid; place-items: center; }
-.video-hero__play svg { width: 68px; transition: transform 0.2s; }
-.video-hero__poster:hover .video-hero__play svg { transform: scale(1.1); }
+.video-hero__frame { position: relative; height: min(808px, 56.25vw); overflow: hidden; }
+/* Scaled up a little so YouTube's title bar and corner logo fall outside the frame. */
+.video-hero__frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; pointer-events: none; transform: scale(1.18); }
+.video-hero__poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity 0.8s var(--ease); }
+.video-hero__poster.is-hidden { opacity: 0; }
 .video-hero .wave-divider { position: absolute; left: 0; bottom: -20px; z-index: 5; }
 
 .home-intro { position: relative; }

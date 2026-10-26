@@ -1,4 +1,5 @@
 import external from "./external-assets.json";
+import optimized from "./optimized-images.json";
 
 /**
  * Every image, video, font and 3D model goes through `media()`.
@@ -16,9 +17,15 @@ const WP_UPLOADS = "https://legacyfoods.pk/wp-content/uploads";
 const LOCAL = process.env.NEXT_PUBLIC_LOCAL_MEDIA === "1";
 
 const externalMap = external as Record<string, string>;
+const optimizedMap = optimized as Record<string, string>;
 
 export function media(path: string): string {
   if (LOCAL) return `/media/${path}`;
   if (path.startsWith("ext/")) return externalMap[path] ?? `/media/${path}`;
   return `${WP_UPLOADS}/${path}`;
+}
+
+/** The resized WebP copy made by `npm run optimize-images` if there is one, else `media(path)`. */
+export function image(path: string): string {
+  return optimizedMap[path] ?? media(path);
 }

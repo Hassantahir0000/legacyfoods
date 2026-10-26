@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { preload } from "react-dom";
 import { categories, getCategory } from "@/lib/products";
-import { media } from "@/lib/media";
+import { image, media } from "@/lib/media";
 import ProductSection from "@/components/products/ProductSection";
 import ExploreFlavors from "@/components/products/ExploreFlavors";
 
@@ -30,9 +31,13 @@ export default async function CategoryPage({ params }: { params: Promise<Params>
   const c = getCategory(category);
   if (!c) notFound();
 
+  // The banner is a CSS background, which the browser only finds after the stylesheet; start it right away.
+  const banner = image(c.banner);
+  preload(banner, { as: "image", fetchPriority: "high" });
+
   return (
     <div className="page-category">
-      <section className="category-banner" style={{ backgroundImage: `url("${media(c.banner)}")` }}>
+      <section className="category-banner" style={{ backgroundImage: `url("${banner}")` }}>
         <h1 className="sr-only">{c.title}</h1>
       </section>
       {c.products.map((p, i) => (
