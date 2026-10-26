@@ -1,0 +1,10 @@
+node_modules
+.next
+out
+.env*.local
+.env
+*.tsbuildinfo
+next-env.d.ts
+.DS_Store
+# Downloaded media is large; commit it only if your host doesn't run the download step.
+# public/media

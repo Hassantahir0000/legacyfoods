@@ -1,0 +1,22 @@
+{
+  "_comment": "Assets the WordPress site loads from Lovable preview hosts instead of its own uploads folder. Those hosts can disappear at any time, so run `npm run download-media` to copy them into public/media.",
+  "ext/range-bg.webp": "https://id-preview--dc4be28e-79ad-44cf-bc9c-62f37258deee.lovable.app/__l5e/assets-v1/ff073bcb-f197-4b94-8c4e-b18544857a8b/banner-plain.webp",
+  "ext/pack-1.webp": "https://id-preview--dc4be28e-79ad-44cf-bc9c-62f37258deee.lovable.app/__l5e/assets-v1/f1010d7a-2721-4b61-82ea-79d0fbfbab74/pack-1.webp",
+  "ext/coated-red-1.webp": "https://id-preview--dc4be28e-79ad-44cf-bc9c-62f37258deee.lovable.app/__l5e/assets-v1/00f304df-57fd-4b5f-8def-c875b0e3529c/coated-red-1.webp",
+  "ext/pack-3.webp": "https://id-preview--dc4be28e-79ad-44cf-bc9c-62f37258deee.lovable.app/__l5e/assets-v1/86d5a89e-0af6-454d-b7df-26f4b819f3ed/pack-3.webp",
+  "ext/pack-4.webp": "https://id-preview--dc4be28e-79ad-44cf-bc9c-62f37258deee.lovable.app/__l5e/assets-v1/eeae5339-e4d6-4a19-9893-49f19ae52314/pack-4.webp",
+  "ext/pack-5.webp": "https://id-preview--dc4be28e-79ad-44cf-bc9c-62f37258deee.lovable.app/__l5e/assets-v1/28af0635-bac0-4b3b-aa93-6aa033035c90/pack-5.webp",
+  "ext/nimko-element.webp": "https://id-preview--dc4be28e-79ad-44cf-bc9c-62f37258deee.lovable.app/__l5e/assets-v1/eee72483-f19d-4746-b7f0-2fe8161fe7bd/nimko-element.webp",
+  "ext/nimko-chili-lemon.png": "https://animation-alchemy-21.lovable.app/__l5e/assets-v1/ed935421-f134-4710-a567-1c8995c3aa1d/nimko-chili-lemon.png",
+  "ext/spicy-masala-element.webp": "https://id-preview--dc4be28e-79ad-44cf-bc9c-62f37258deee.lovable.app/__l5e/assets-v1/8d5ad0ef-d388-46ab-a41f-51c69ddba26c/spicy-masala-element.webp",
+  "ext/el-masala-1.webp": "https://id-preview--dc4be28e-79ad-44cf-bc9c-62f37258deee.lovable.app/__l5e/assets-v1/45675059-4832-4722-bb18-de2211cd12e1/el-masala-1.webp",
+  "ext/el-popcorn-1.webp": "https://id-preview--dc4be28e-79ad-44cf-bc9c-62f37258deee.lovable.app/__l5e/assets-v1/512ca579-6baa-4f16-a87f-4547e128c95f/el-popcorn-1.webp",
+  "ext/el-popcorn-2.png": "https://animation-alchemy-21.lovable.app/assets/el-popcorn-2-9_Y1i35V.png",
+  "ext/crisp-element.webp": "https://id-preview--dc4be28e-79ad-44cf-bc9c-62f37258deee.lovable.app/__l5e/assets-v1/6dcf42c1-4019-42b7-9e98-c450f3eabb5b/crisp-element.webp",
+  "ext/el-crisp-2.webp": "https://id-preview--dc4be28e-79ad-44cf-bc9c-62f37258deee.lovable.app/__l5e/assets-v1/8481036f-76bf-400a-b29c-f97811aa143e/el-crisp-2.webp",
+  "ext/tango-element.webp": "https://id-preview--dc4be28e-79ad-44cf-bc9c-62f37258deee.lovable.app/__l5e/assets-v1/7b08d2f9-8556-422f-b551-d02bc2a2b162/tango-element.webp",
+  "ext/el-rango-2.webp": "https://id-preview--dc4be28e-79ad-44cf-bc9c-62f37258deee.lovable.app/__l5e/assets-v1/56bcf609-b3b5-4a7d-8b67-87a270486f04/el-rango-2.webp",
+  "ext/caramel-bag.glb": "https://animation-alchemy-21.lovable.app/__l5e/assets-v1/9ee79cf0-b8ef-4b25-9c14-0d7dae0d499c/caramel-bag.glb",
+  "ext/badshahi-mirror.glb": "https://id-preview--ebf36a37-c7ed-4757-8013-7e0197149320.lovable.app/__l5e/assets-v1/e161879e-c990-4a8a-8e19-5bc7445fcbab/badshahi.glb",
+  "ext/jumbopops-mirror.glb": "https://id-preview--ebf36a37-c7ed-4757-8013-7e0197149320.lovable.app/__l5e/assets-v1/a16eafe9-d365-40c1-ac77-3adbae782f7e/cocotea-jumbopops.glb"
+}
