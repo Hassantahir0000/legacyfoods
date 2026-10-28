@@ -1,31 +1,31 @@
 import Link from "next/link";
-import { productLinks } from "@/lib/site";
+import { image } from "@/lib/media";
+import Carousel from "@/components/Carousel";
 
-const tones: Record<string, string> = {
-  "/nimko": "pink",
-  "/snacks": "lime",
-  "/popcorn": "orange",
-  "/coated-peanut": "red",
-};
+/** The live site's cards, in its order: a front picture that fades to a second one on hover. */
+const cards = [
+  { href: "/nimko", label: "Nimko", front: "2026/09/5.webp", back: "2026/09/5a.webp" },
+  { href: "/popcorn", label: "Popcorn", front: "2026/09/1.webp", back: "2026/09/1a.webp" },
+  { href: "/snacks", label: "Snacks", front: "2026/09/2.webp", back: "2026/09/2a.webp" },
+  { href: "/coated-peanut", label: "Coated Peanut", front: "2026/09/3-1.webp", back: "2026/09/3a-1.webp" },
+  { href: "/snacks", label: "Snacks", front: "2026/09/4.webp", back: "2026/09/4a.webp" },
+];
 
-/** "Explore our other flavors" flip cards at the bottom of each category page. */
-export default function ExploreFlavors({ current }: { current: string }) {
+/** "Explore our other flavors": red band, heading on the left, autoplaying carousel of fade cards. */
+export default function ExploreFlavors() {
   return (
     <section className="explore">
-      <h2 className="brand-font">explore our other flavors</h2>
-      <div className="explore__grid">
-        {productLinks.map((p) => (
-          <Link key={p.href} href={p.href} className={`flip-card flip-card--${tones[p.href]} ${p.href === `/${current}` ? "is-current" : ""}`}>
-            <span className="flip-card__inner">
-              <span className="flip-card__front brand-font">{p.label}</span>
-              <span className="flip-card__back">
-                <span className="brand-font">{p.label}</span>
-                <span className="flip-card__cta">Explore →</span>
-              </span>
-            </span>
+      <div className="explore__heading">
+        <h2 className="brand-font">explore our other flavors</h2>
+      </div>
+      <Carousel className="explore__carousel" autoplay={3000} label="Other Cocotea flavors" dots={false}>
+        {cards.map((c, i) => (
+          <Link key={i} href={c.href} className="fade-card" aria-label={c.label}>
+            <span className="fade-card__layer" style={{ backgroundImage: `url("${image(c.front)}")` }} />
+            <span className="fade-card__layer fade-card__layer--back" style={{ backgroundImage: `url("${image(c.back)}")` }} />
           </Link>
         ))}
-      </div>
+      </Carousel>
     </section>
   );
 }

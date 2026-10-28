@@ -43,7 +43,7 @@ export default async function CategoryPage({ params }: { params: Promise<Params>
       {c.products.map((p, i) => (
         <ProductSection key={`${p.model}-${i}`} product={p} index={i} />
       ))}
-      <ExploreFlavors current={c.slug} />
+      <ExploreFlavors />
     </div>
   );
 }

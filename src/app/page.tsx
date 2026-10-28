@@ -7,6 +7,7 @@ import CurvedMarquee from "@/components/home/CurvedMarquee";
 import CategoryTiles from "@/components/home/CategoryTiles";
 import MagicFlavors from "@/components/home/MagicFlavorsLazy";
 import TheRange from "@/components/home/TheRange";
+import PouchFan from "@/components/home/PouchFan";
 import Carousel from "@/components/Carousel";
 import Reveal from "@/components/Reveal";
 
@@ -14,8 +15,6 @@ export const metadata: Metadata = {
   title: { absolute: "Home - Legacy Foods" },
   alternates: { canonical: "/" },
 };
-
-const heroPouches = ["04", "05", "07", "03", "02", "08", "09"];
 
 const stories = [
   { img: "2026/09/42-scaled.jpg", title: "Crunch into happiness with every bite!" },
@@ -50,12 +49,7 @@ export default function HomePage() {
       <div className="home-intro">
         <SwooshLine />
         <CloudHero />
-        <div className="pouch-row" aria-label="Cocotea nimko range">
-          {heroPouches.map((n, i) => (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img key={n} src={media(`2026/10/pouches-${n}.webp`)} alt="Cocotea nimko pouch" style={{ ["--i" as string]: i }} loading="lazy" />
-          ))}
-        </div>
+        <PouchFan />
       </div>
 
       <CurvedMarquee />
@@ -67,7 +61,7 @@ export default function HomePage() {
       <TheRange />
 
       <section className="stories">
-        <Carousel className="stories__carousel" autoplay={5000} label="Legacy Foods moments" dots>
+        <Carousel className="stories__carousel" autoplay={4000} label="Legacy Foods moments" dots>
           {stories.map((s) => (
             <article className="story" key={s.img}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -78,29 +72,34 @@ export default function HomePage() {
         </Carousel>
       </section>
 
+      {/* Entrance animations as on the live site: the box rises while the cards come in from the left, rightmost first.
+          The cards start a full width to the left, so they follow the box's reveal rather than watching themselves. */}
       <section className="trust">
-        <div className="trust__box">
-          <Reveal as="h2" className="trust__title brand-font">Why Snack Lovers Trust Us</Reveal>
+        <Reveal className="trust__box reveal--slow" delay={30}>
+          <h2 className="trust__title brand-font">Why Snack Lovers Trust Us</h2>
           <div className="trust__grid">
             {trust.map((t, i) => (
-              <Reveal className="trust__card" key={t.title} delay={i * 120}>
+              <div className={`trust__card ${i === 0 ? "trust__card--slide" : ""}`} key={t.title} style={{ transitionDelay: `${(trust.length - i) * 30}ms` }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={media(t.icon)} alt="" width={110} height={110} loading="lazy" />
                 <h3 className="brand-font">{t.title}</h3>
                 <p>{t.text}</p>
-              </Reveal>
+              </div>
             ))}
           </div>
-        </div>
+        </Reveal>
       </section>
 
-      <section className="pack-slider">
-        <Carousel className="pack-slider__carousel" autoplay={2500} label="Cocotea packs" dots>
-          {packSlides.map(([src, alt], i) => (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img key={`${src}-${i}`} src={media(src)} alt={alt} loading="lazy" />
+      {/* Continuous drift, one pack every 10s, like the live site's Swiper (speed 10000, no delay). Pauses on hover. */}
+      <section className="pack-slider" aria-label="Cocotea packs">
+        <div className="pack-slider__track" style={{ ["--count" as string]: packSlides.length }}>
+          {[...packSlides, ...packSlides].map(([src, alt], i) => (
+            <div className="pack-slider__slide" key={`${src}-${i}`} aria-hidden={i >= packSlides.length || undefined}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={media(src)} alt={i < packSlides.length ? alt : ""} width={577} height={573} loading="lazy" />
+            </div>
           ))}
-        </Carousel>
+        </div>
       </section>
     </div>
   );

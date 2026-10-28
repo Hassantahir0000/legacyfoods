@@ -36,6 +36,9 @@ export default function PackModel({ src, alt }: { src: string; alt: string }) {
     return () => io.disconnect();
   }, []);
 
+  // Rendered only on the client (after `near`), so reading the width here is safe. Phones get the camera closer, as on the live site.
+  const radius = near && window.innerWidth <= 575 ? "80%" : "105%";
+
   return (
     <div className="pw-model-wrap" ref={ref}>
       {near && (
@@ -51,9 +54,9 @@ export default function PackModel({ src, alt }: { src: string; alt: string }) {
           environment-image="neutral"
           exposure="1.15"
           field-of-view="30deg"
-          camera-orbit="0deg 75deg 105%"
-          min-camera-orbit="auto 55deg auto"
-          max-camera-orbit="auto 105deg auto"
+          camera-orbit={`0deg 75deg ${radius}`}
+          min-camera-orbit={`auto 55deg ${radius}`}
+          max-camera-orbit={`auto 105deg ${radius}`}
           loading="eager"
           touch-action="pan-y"
         />

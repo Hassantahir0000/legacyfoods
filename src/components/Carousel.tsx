@@ -77,7 +77,10 @@ export default function Carousel({ children, className = "", autoplay = 0, label
     >
       <div className="carousel__track" ref={trackRef}>
         {slides.map((s, i) => (
-          <div className="carousel__slide" key={i} role="group" aria-roledescription="slide" aria-label={`${i + 1} of ${slides.length}`}>
+          <div
+            className={`carousel__slide${i === index ? " is-active" : i === index - 1 ? " is-prev" : i === index + 1 ? " is-next" : ""}`}
+            key={i}
+            role="group" aria-roledescription="slide" aria-label={`${i + 1} of ${slides.length}`}>
             {s}
           </div>
         ))}
