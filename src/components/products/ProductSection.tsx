@@ -1,4 +1,4 @@
-import { image, media } from "@/lib/media";
+import { media } from "@/lib/media";
 import type { Product } from "@/lib/products";
 import PackModel from "./PackModel";
 
@@ -21,14 +21,14 @@ export default function ProductSection({ product, index }: { product: Product; i
       style={{
         ["--product-bg" as string]: product.color,
         ["--button" as string]: product.button ?? product.color,
-        ["--pattern" as string]: `url("${image("2026/09/Untitled-design-35.png")}")`,
+        ["--pattern" as string]: `url("${media("2026/09/Untitled-design-35.png")}")`,
       }}
       aria-label={product.name}
     >
       <div className="product-left">
         <div className="product-bowl">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="product-bowl__img" src={image(product.bowl)} alt={product.name} width={800} height={800} loading="lazy" decoding="async" />
+          <img className="product-bowl__img" src={media(product.bowl)} alt={product.name} width={800} height={800} loading="lazy" decoding="async" />
           {/* Elementor's text-path circle: a 250.5 box, text sitting on the rim of the plate. */}
           <svg className="product-bowl__ring" viewBox="0 0 250.5 250.5" aria-hidden="true">
             <path id={ringId} d="M.25,125.25a125,125,0,1,1,125,125,125,125,0,0,1-125-125" fill="none" />
@@ -52,7 +52,7 @@ export default function ProductSection({ product, index }: { product: Product; i
             <span
               key={i}
               className="product-accent-item"
-              style={{ top: a.top, left: a.left, width: a.width, height: a.width, ["--rot" as string]: a.rot, backgroundImage: `url("${image(product.accent!)}")` }}
+              style={{ top: a.top, left: a.left, width: a.width, height: a.width, ["--rot" as string]: a.rot, backgroundImage: `url("${media(product.accent!)}")` }}
             />
           ))}
         </div>

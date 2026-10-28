@@ -72,7 +72,7 @@ export default function Header() {
       <div className={`mobile-menu ${open ? "is-open" : ""}`} role="dialog" aria-modal="true" aria-label="Menu">
         <button type="button" className="mobile-menu__close" aria-label="Close menu" onClick={() => setOpen(false)}>×</button>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={media(site.logo)} alt="" className="mobile-menu__logo" />
+        <img src={media(site.logo)} alt="" className="mobile-menu__logo" width={180} height={120} />
         <Link href="/">Home</Link>
         <Link href="/about-us">About Us</Link>
         <details>

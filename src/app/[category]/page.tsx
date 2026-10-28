@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { preload } from "react-dom";
 import { categories, getCategory } from "@/lib/products";
-import { image, media } from "@/lib/media";
+import { media, mediaOriginal } from "@/lib/media";
 import ProductSection from "@/components/products/ProductSection";
 import ExploreFlavors from "@/components/products/ExploreFlavors";
 
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     title: c.title,
     description: c.description,
     alternates: { canonical: `/${c.slug}` },
-    openGraph: { images: [{ url: media(c.banner) }] },
+    openGraph: { images: [{ url: mediaOriginal(c.banner) }] },
   };
 }
 
@@ -32,7 +32,7 @@ export default async function CategoryPage({ params }: { params: Promise<Params>
   if (!c) notFound();
 
   // The banner is a CSS background, which the browser only finds after the stylesheet; start it right away.
-  const banner = image(c.banner);
+  const banner = media(c.banner);
   preload(banner, { as: "image", fetchPriority: "high" });
 
   return (

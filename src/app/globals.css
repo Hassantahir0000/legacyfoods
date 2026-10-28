@@ -161,7 +161,7 @@ h1, h2, h3, h4, p { margin: 0; }
   padding: 90px 24px 40px; overflow-y: auto; opacity: 0; visibility: hidden; transition: 0.3s var(--ease);
 }
 .mobile-menu.is-open { opacity: 1; visibility: visible; }
-.mobile-menu__logo { width: 130px; margin-bottom: 10px; }
+.mobile-menu__logo { width: 130px; height: auto; margin-bottom: 10px; }
 .mobile-menu a, .mobile-menu summary { font-family: var(--font-display); color: var(--yellow); font-size: 30px; -webkit-text-stroke: 0.6px #b88a00; cursor: pointer; list-style: none; text-align: center; }
 .mobile-menu details { display: flex; flex-direction: column; align-items: center; }
 .mobile-menu details[open] a { display: block; font-size: 22px; margin-top: 8px; }
@@ -459,7 +459,8 @@ h1, h2, h3, h4, p { margin: 0; }
 }
 .range__more:hover { transform: scale(1.05); }
 .range__dots { position: absolute; z-index: 6; left: 3%; bottom: 5%; display: flex; gap: 6px; }
-.range__dots button { width: 22px; height: 2px; padding: 0; border: 0; background: currentColor; opacity: 0.35; }
+/* 24px-tall tap target; the visible bar is the 2px content box. */
+.range__dots button { width: 22px; height: 24px; padding: 11px 0; border: 0; background: currentColor; background-clip: content-box; opacity: 0.35; }
 .range__dots button.is-active { opacity: 1; }
 @media (max-width: 768px) {
   .range__pack { top: 8%; bottom: 32%; }
@@ -481,9 +482,10 @@ h1, h2, h3, h4, p { margin: 0; }
 .carousel__arrow svg { width: 18px; fill: none; stroke: #fff; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
 .carousel__arrow--prev { left: 6px; }
 .carousel__arrow--next { right: 6px; }
-.carousel__dots { display: flex; justify-content: center; gap: 8px; padding: 16px 0 4px; flex-wrap: wrap; }
-.carousel__dots button { width: 8px; height: 8px; padding: 0; border-radius: 50%; border: 0; background: rgba(0, 0, 0, 0.35); }
-.carousel__dots button.is-active { background: #000; }
+.carousel__dots { display: flex; justify-content: center; padding: 8px 0 0; flex-wrap: wrap; }
+/* 24px tap target; padding + content-box clip keeps the visible dot at 8px. */
+.carousel__dots button { width: 24px; height: 24px; padding: 8px; border-radius: 50%; border: 0; background: rgba(0, 0, 0, 0.35); background-clip: content-box; }
+.carousel__dots button.is-active { background: #000; background-clip: content-box; }
 
 .stories { position: relative; z-index: 2; padding: 0 0.6%; margin-top: 0; }
 .stories__carousel { background: #e8c5d6; border-radius: 20px; padding: 18px 0 4px; }

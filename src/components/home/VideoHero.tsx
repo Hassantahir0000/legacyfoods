@@ -71,7 +71,7 @@ export default function VideoHero() {
           />
         )}
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img className={`video-hero__poster ${started ? "is-hidden" : ""}`} src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`} alt="" />
+        <img className={`video-hero__poster ${started ? "is-hidden" : ""}`} fetchPriority="high" src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`} alt="" />
       </div>
       <div className="wave-divider wave-divider--yellow" aria-hidden="true" />
     </section>
